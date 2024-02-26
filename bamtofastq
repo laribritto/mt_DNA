@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Este script é um script Bash projetado para converter arquivos SAM em arquivos FASTQ usando a ferramenta bamToFastq
+
+for i in $(cat /data/list.txt)
+do
+bamToFastq -i /resultados/result_${i}.sam -fq f.${i}_mtDNA_1.fastq -fq2 f.${i}_mtDNA_2.fastq
+done
+
