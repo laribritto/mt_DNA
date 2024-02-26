@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Este é um script Bash que executa o mapeamento de sequências de DNA usando a ferramenta BWA e realiza algumas operações adicionais com o Samtools.
+
+for i in $(cat /data/list.txt)
+do
+bwa mem -t 16 -M /data/${i}*.fasta \
+/data/${i}*_1.fastq.gz \
+/data/${i}*_2.fastq.gz \
+| samtools view -h -F 4  > resultados/result_${i}.sam
+done
