@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Este script usa o Unicycler para montar o genoma mitocondrial a partir de arquivos fastq adquiridos pela montagem realizada do NOVOPlasty.
+
+for i in $(cat /data/list.txt)
+do
+unicycler -1 /data/f.${i}_mtDNA_1.fastq -2 /data/f.${i}_mtDNA_2.fastq \
+-o /data/results/${i}_mtDNA
+done
